@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -9,24 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
   loading: boolean = true;
-  eleId;
   allData: any;
   selectedEle;
 
   constructor(
     private service: DataService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
     }, 3000);
-    this.eleId = this.activatedRoute.snapshot.paramMap.get('id');
+    let eleId = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.service.saveData().subscribe((data) => {
-      this.allData = data;
-      this.selectedEle = this.allData.find((x) => (x.id = this.eleId));
-    });
+    this.selectedEle = this.http
+      .get('https://jsonplaceholder.typicode.com/posts/' + eleId)
+      .subscribe((data) => {
+        this.selectedEle = data;
+      });
   }
 }
