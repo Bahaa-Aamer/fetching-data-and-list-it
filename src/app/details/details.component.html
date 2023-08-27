@@ -1,0 +1,28 @@
+<div class="spinner" *ngIf="loading; else doneLoading"></div>
+
+<ng-template #doneLoading>
+  <div class="container">
+    <h1>Details</h1>
+
+    <label>
+      <h2>User Id:</h2>
+      {{ selectedEle?.userId }}</label
+    >
+    <br />
+
+    <label
+      ><h2>Id:</h2>
+      {{ selectedEle?.id }}</label
+    >
+    <br />
+    <label
+      ><h2>Title:</h2>
+      {{ selectedEle?.title }}</label
+    >
+    <br />
+    <label
+      ><h2>Body:</h2>
+      {{ selectedEle?.body }}</label
+    >
+  </div>
+</ng-template>

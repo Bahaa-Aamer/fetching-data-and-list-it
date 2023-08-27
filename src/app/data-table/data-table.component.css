@@ -1,0 +1,80 @@
+.container {
+  width: 60%;
+  position: relative;
+  text-align: center;
+  left: 20%;
+}
+
+table {
+  position: relative;
+  background-color: lightblue;
+  position: relative;
+  top: 80px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 50%;
+  text-align: center;
+  box-shadow: 0 0 5px lightblue, 0 0 25px lightblue, 0 0 50px lightblue,
+    0 0 100px lightblue;
+}
+
+.paginator {
+  background-color: lightblue;
+  left: 270px;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0 5px 5px;
+  top: 80px;
+  position: relative;
+  box-shadow: 0 0 5px lightblue, 0 0 25px lightblue, 0 0 50px lightblue,
+    0 0 150px lightblue;
+}
+
+th {
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+}
+
+td {
+  cursor: pointer;
+}
+
+.spinner {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-color: #dbdcef #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-color: #474bff #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner::after {
+  margin: 8.9px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}
