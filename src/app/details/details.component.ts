@@ -20,15 +20,12 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
     let eleId = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.selectedEle = this.http
       .get('https://jsonplaceholder.typicode.com/posts/' + eleId)
       .subscribe((data) => {
         this.selectedEle = data;
+        this.loading = false;
       });
   }
 }

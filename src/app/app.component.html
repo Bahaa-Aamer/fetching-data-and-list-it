@@ -1,7 +1,7 @@
 <nav>
   <ul>
-    <li routerLink="data" (click)="loadData()">Table</li>
+    <li routerLink="data">Table</li>
   </ul>
 </nav>
-<div class="spinner" *ngIf="loading; else doneLoading"></div>
-<ng-template #doneLoading> <router-outlet></router-outlet></ng-template>
+
+<router-outlet></router-outlet>

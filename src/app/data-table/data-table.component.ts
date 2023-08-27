@@ -20,6 +20,7 @@ export interface PeriodicElement {
 })
 export class DataTableComponent implements OnInit {
   finalData: any;
+  loading: boolean;
 
   displayedColumns: string[] = ['id', 'title', 'body'];
   dataSource;
@@ -29,11 +30,14 @@ export class DataTableComponent implements OnInit {
   constructor(private route: Router, public service: DataService) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.service.saveData().subscribe((data) => {
       this.finalData = data;
+
       const ELEMENT_DATA: PeriodicElement[] = this.finalData;
       this.dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+      this.loading = false;
     });
   }
 

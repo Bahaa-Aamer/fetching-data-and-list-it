@@ -18,6 +18,12 @@ table {
     0 0 100px lightblue;
 }
 
+.pag-container {
+  position: relative;
+  width: 30%;
+  left: 20%;
+}
+
 .paginator {
   background-color: lightblue;
   left: 270px;

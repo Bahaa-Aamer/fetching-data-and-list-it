@@ -4,20 +4,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor() {}
-  loading = true;
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
-  }
-
-  loadData() {
-    this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
-  }
 }
